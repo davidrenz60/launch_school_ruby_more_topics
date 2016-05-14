@@ -1,18 +1,14 @@
-
-require 'pry'
-
 class Todo
   DONE_MARKER = 'X'
   UNDONE_MARKER = ' '
 
   attr_accessor :title, :description, :done
 
-  def initialize(title, desciption='')
+  def initialize(title, desciption= '')
     @title = title
     @description = description
     @done = false
   end
-
 
   def done!
     self.done = true
@@ -40,9 +36,8 @@ class TodoList
   end
 
   def add(task)
-    raise TypeError, 'can only add Todo objects' unless task.class == Todo
-    
-      @todos << task
+    fail TypeError, 'can only add Todo objects' unless task.class == Todo
+    @todos << task
   end
   alias_method :<<, :add
 
